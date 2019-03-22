@@ -97,6 +97,19 @@ public class Picture extends SimplePicture
       }
     }
   }
+
+  public void keepOnlyBlue()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] row : pixels)
+    {
+      for (Pixel pixelObj: row)
+      {
+        pixelObj.setGreen(0);
+        pixelObj.setRed(0);
+      }
+    }
+  }
   
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
@@ -216,7 +229,52 @@ public class Picture extends SimplePicture
       }
     }
   }
-  
+
+  public void Grayscale()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] row : pixels)
+    {
+      for (Pixel pixelObj: row)
+      {
+        int value = (pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue())/3;
+        pixelObj.setGreen(value);
+        pixelObj.setRed(value);
+        pixelObj.setBlue(value);
+      }
+    }
+  }
+
+  public void FixUnderwater()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] row : pixels)
+    {
+      for (Pixel pixelObj: row)
+      {
+        if (pixelObj.getBlue() > 150)
+        {
+          pixelObj.setGreen(0);
+          pixelObj.setRed(0);
+        }
+
+      }
+    }
+  }
+
+  public  void Negate()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] row : pixels)
+    {
+      for (Pixel pixelObj: row)
+      {
+        pixelObj.setGreen(255 - pixelObj.getGreen());
+        pixelObj.setRed(255- pixelObj.getRed());
+        pixelObj.setBlue(255 - pixelObj.getBlue());
+      }
+    }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
