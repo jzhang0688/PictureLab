@@ -29,10 +29,11 @@ public class PictureTester
   {
     Picture caterpillar = new Picture("caterpillar.jpg");
     caterpillar.explore();
-    caterpillar.mirrorVertical();
+    caterpillar.mirrorVerticalRighttoLeft();
     caterpillar.explore();
   }
-  
+
+
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
@@ -55,6 +56,13 @@ public class PictureTester
     beach.explore();
     beach.Negate();
     beach.explore();
+  }
+  public static void testMirrorHorizontal()
+  {
+    Picture caterpillar = new Picture("redMotorcycle.jpg");
+    caterpillar.explore();
+    caterpillar.mirrorHorizontal();
+    caterpillar.explore();
   }
 
   public static void testGrayscale()
@@ -94,7 +102,7 @@ public class PictureTester
     //testKeepOnlyGreen();
     //testNegate();
     //testGrayscale();
-    testFixUnderwater();
+    //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
@@ -110,5 +118,6 @@ public class PictureTester
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+    testMirrorHorizontal();
   }
 }
